@@ -14,7 +14,8 @@
   },
   "require-dev": {
     "webforge/testplate": "1.*",
-    "mockery/mockery": "dev-master"
+    "mockery/mockery": "dev-master",
+    "liip/rmt": "0.9.*"
   },
   "autoload":{
     "psr-0":{
