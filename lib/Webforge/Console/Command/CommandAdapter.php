@@ -2,13 +2,17 @@
 
 namespace Webforge\Console\Command;
 
-use Symfony\Component\Console\Output\OutputInterface as SymfonyInput;
-use Symfony\Component\Console\Input\InputInterface as SymfonyOutput;
+use Symfony\Component\Console\Input\InputInterface as SymfonyInput;
+use Symfony\Component\Console\Output\OutputInterface as SymfonyOutput;
 
 use Webforge\Console\CommandInput;
 use Webforge\Console\CommandOutput;
 use Webforge\Console\CommandInteraction;
 use Webforge\Common\System\System;
+
+use Webforge\Console\SymfonyCommandOutputAdapter;
+use Webforge\Console\SymfonyCommandInputAdapter;
+use Webforge\Console\InteractionHelper;
 
 abstract class CommandAdapter extends \Symfony\Component\Console\Command\Command {
 

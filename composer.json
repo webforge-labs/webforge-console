@@ -13,7 +13,8 @@
     "symfony/console": "2.3.*@stable"
   },
   "require-dev": {
-    "webforge/testplate": "1.*"
+    "webforge/testplate": "1.*",
+    "mockery/mockery": "dev-master"
   },
   "autoload":{
     "psr-0":{
