@@ -15,7 +15,8 @@
   "require-dev": {
     "webforge/testplate": "1.*",
     "mockery/mockery": "dev-master",
-    "liip/rmt": "0.9.*"
+    "liip/rmt": "0.9.*",
+    "satooshi/php-coveralls": "dev-master"
   },
   "autoload":{
     "psr-0":{
