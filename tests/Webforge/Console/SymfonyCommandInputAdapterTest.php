@@ -16,12 +16,14 @@ class SymfonyCommandInputAdapterTest extends \Webforge\Code\Test\Base {
     $this->inputDefinition = new InputDefinition(
       array(
         new InputArgument('location'),
+        new InputArgument('somefile'),
         new InputArgument('type')
       )
     );
 
     $this->input = $this->createInput(array(
       'location'=>__DIR__,
+      'somefile'=>__FILE__,
       'type'=>'npm'
     ));
   }
@@ -91,5 +93,14 @@ class SymfonyCommandInputAdapterTest extends \Webforge\Code\Test\Base {
     $this->setExpectedException('InvalidArgumentException');
 
     $this->input->getEnum('type', array('composer', 'npm'), 'composer');
+  }
+
+  public function testHasAGetFileMethodThatHandlesAbsolutePaths() {
+    $this->assertInstanceOf('Webforge\Common\System\File', $file = $this->input->getFile('somefile'));
+
+    $this->assertEquals(
+      __FILE__,
+      (string) $file
+    );
   }
 }

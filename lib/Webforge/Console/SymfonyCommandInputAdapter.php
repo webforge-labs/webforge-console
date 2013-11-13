@@ -5,6 +5,7 @@ namespace Webforge\Console;
 use Symfony\Component\Console\Input\InputInterface;
 use Webforge\Common\System\Dir;
 use InvalidArgumentException;
+use Webforge\Common\System\File;
 
 /**
  * Adapter for Symfony Input to the Webforge\Console\CommandInput Interface
@@ -39,6 +40,12 @@ class SymfonyCommandInputAdapter implements CommandInput {
     }
     
     throw new InvalidArgumentException(sprintf("Directory from path: '%s' cannot be found.%s", $path, $errorDetail));
+  }
+
+  public function getFile($var) {
+    $path = $this->getValue($var);
+
+    return new File($path);
   }
 
   public function getEnum($var, Array $allowedValues, $default = NULL) {
