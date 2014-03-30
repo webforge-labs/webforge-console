@@ -20,4 +20,12 @@ class SymfonyCommandAdapterOutputTest extends \Webforge\Code\Test\Base {
 
     $this->assertContains('done and finished.', stream_get_contents($this->stream->getStream()));
   }
+
+  public function testHasErrorMethod() {
+    $string = $this->output->error('an error occured.');
+
+    rewind($this->stream->getStream());
+
+    $this->assertContains('an error occured.', stream_get_contents($this->stream->getStream()));
+  }
 }

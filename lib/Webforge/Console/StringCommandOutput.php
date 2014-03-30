@@ -27,6 +27,19 @@ class StringCommandOutput implements CommandOutput {
   /**
    * @inherit-doc
    */
+  public function error($msg) {
+    $this->msgs .= 'error: '.$msg."\n";
+    return $this;
+  }
+
+  public function br() {
+    $this->msgs .= "\n";
+    return $this;
+  }
+
+  /**
+   * @inherit-doc
+   */
   public function msg($msg) {
     $this->msgs .= $msg."\n";
     return $this;

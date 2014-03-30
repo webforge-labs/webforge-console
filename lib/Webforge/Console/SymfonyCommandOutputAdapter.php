@@ -32,17 +32,21 @@ class SymfonyCommandOutputAdapter implements CommandOutput {
   /**
    * @inherit-doc
    */ 
+  public function error($msg) {
+    return $this->msg('<error>'.$msg.'</error>');
+  }
+
+  /**
+   * @inherit-doc
+   */ 
   public function msg($msg) {
     $this->consoleOutput->writeln($msg);
   }
 
-  /*
-  public function info($msg) {
-    return $this->out('<info>'.$msg.'</info>');
+  /**
+   * @inherit-doc
+   */ 
+  public function br() {
+    return $this->msg("");
   }
-
-  public function comment($msg) {
-    return $this->out('<comment>'.$msg.'</comment>');
-  }
-  */
 }

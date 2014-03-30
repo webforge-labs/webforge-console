@@ -26,4 +26,21 @@ class StringCommandOutputTest extends \Webforge\Code\Test\Base {
     );
   }
 
+  public function testNewInterfaceErorr() {
+    $this->output->error('oops');
+
+    $this->assertEquals(
+      "error: oops\n",
+      $this->output->toString()
+    );
+  }
+
+  public function testBr() {
+    $this->output->br();
+
+    $this->assertEquals(
+      "\n",
+      $this->output->toString()
+    );
+  }
 }
