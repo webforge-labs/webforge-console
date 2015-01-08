@@ -30,7 +30,7 @@ abstract class CommandAdapter extends \Symfony\Component\Console\Command\Command
   }
 
   protected function execute(SymfonyInput $input, SymfonyOutput $output) {
-    $this->interactionHelper = new InteractionHelper($this->getHelper('dialog'), $output);
+    $this->interactionHelper = new InteractionHelper(new \Symfony\Component\Console\Helper\DialogHelper($warnDeprecation = FALSE), $output);
     $this->output = new SymfonyCommandOutputAdapter($output);
     $this->input = new SymfonyCommandInputAdapter($input);
 
